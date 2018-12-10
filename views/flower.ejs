@@ -1,0 +1,76 @@
+
+<%  include ./partials/header %>
+<div class="container text-center">
+    <div class="flower-container">
+        <h2 class="text-center"><%= current %></h2>
+        <div class="container">
+        <div style="image-block">
+            <img src="<%= imageUrl %>" class="rounded float-center" alt="<%= current %>">
+        </div>
+         <!-- Button trigger modal -->
+         <div style="display: block; margin: 20px;">
+         <button style="display: inline;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+         Update this flower
+         </button>
+
+         <form style="display: inline;" class="form" action="/flowers/<%= current %>?_method=DELETE" method="POST">
+             <button type="submit" class="btn btn-danger">Delete</button>
+         </form>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Update <%= current %></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <form class="form" action="/flowers/<%= current %>/?_method=PUT" method="post">
+                    <label class="" for="comname">Common Name</label>
+                    <input type="text" class="form-control mb-2 mr-sm-2" id="comname" name="comname" placeholder="Douglas dustymaiden	">
+
+                    <label class="" for="genus">Genus</label>
+                    <input type="text" class="form-control" id="genus" name="genus" placeholder="Chaenactis">
+
+                    <label class="" for="species">Species</label>
+                    <input type="text" class="form-control" id="species" name="species" placeholder="douglasii">
+                    <div class="button">
+                        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        </div>
+        </div>
+         </div>
+         <hr>
+        <h3 class="text-center">10 Most Recent Sightings for <%= current %></h3>
+        <table class="table">
+        <thead>
+        <tr>
+        <th scope="col">Sighting #</th>
+            <th scope="col">Date</th>
+            <th scope="col">Location</th>
+            <th scope="col">Sighted By</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for(var i=0; i<flowers.length; i++) { %>
+            <tr>
+                <th scope="row"><%= (i+1) %></th>
+                <td><a href="#"><%= flowers[i].SIGHTED %></a></td>
+                <td><a href=""><%= flowers[i].LOCATION%></a></td>
+                <td><a href=""><%= flowers[i].PERSON %></a></td>
+            </tr>
+        <% } %>
+        </tbody>
+        </table>
+    </div>
+</div>
+<%  include ./partials/footer %>

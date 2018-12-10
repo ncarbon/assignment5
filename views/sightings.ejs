@@ -1,0 +1,71 @@
+
+<%  include ./partials/header %>
+<div class="container text-center">
+    <div class="flower-container">
+        <h2 class="text-center">All sightings</h2>
+        <div class="container">
+         <!-- Button trigger modal -->
+         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+         Add a new sighting
+         </button>
+ 
+         <!-- Modal -->
+         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog" role="document">
+         <div class="modal-content">
+             <div class="modal-header">
+             <h5 class="modal-title" id="exampleModalLabel">Add a new sighting</h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+             </button>
+             </div>
+             <div class="modal-body">
+                <form class="form" action="/sightings" method="POST">
+                    <label class="sr-only" for="comname">Common Name</label>
+                    <input type="text" class="form-control mb-2 mr-sm-2" id="comname" name="comname" placeholder="Douglas dustymaiden">
+
+                    <label class="sr-only" for="person">Person</label>
+                    <input type="text" class="form-control mb-2 mr-sm-2" id="person" name="person" placeholder="Jennifer">
+
+                    <label class="sr-only" for="location">Location</label>
+                    <input type="text" class="form-control mb-2 mr-sm-2" id="location" name="location" placeholder="Scodie Mountains">
+
+                    <label for="date" class="col-2 col-form-label">Date</label>
+                    <div class="col-10">
+                    <input class="form-control mb-2 mr-sm-2" type="date" id="date" name="date">
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                </form>
+             </div>
+             <div class="modal-footer">
+             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div>
+         </div>
+         </div>
+         </div>
+        </div>
+        <table class="table">
+        <thead>
+        <tr>
+        <th scope="col">#</th>
+            <th scope="col">Common Name</th>
+            <th scope="col">Sighted By</th>
+            <th scope="col">Location</th>
+            <th scope="col">Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for(var i=0; i<sightings.length; i++) { %>
+            <tr>
+                <th scope="row"><%= (i+1) %></th>
+                <td><a href="/sightings/<%= sightings[i].NAME %>"><%= sightings[i].NAME %></a></td>
+                <td><a href="/sightings/<%= sightings[i].NAME %>"><%= sightings[i].PERSON%></a></td>
+                <td><a href="/sightings/<%= sightings[i].NAME %>"><%= sightings[i].LOCATION %></a></td>
+                <td><a href="/sightings/<%= sightings[i].NAME %>"><%= sightings[i].SIGHTED %></a></td>
+            </tr>
+        <% } %>
+        </tbody>
+        </table>
+    </div>
+</div>
+<%  include ./partials/footer %>

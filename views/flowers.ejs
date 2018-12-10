@@ -1,0 +1,28 @@
+
+<%  include ./partials/header %>
+<div class="container text-center">
+    <div class="flower-container">
+        <h2 class="text-center">All flowers</h2>
+        <table class="table">
+        <thead>
+        <tr>
+        <th scope="col">#</th>
+            <th scope="col">Common Name</th>
+            <th scope="col">Genus</th>
+            <th scope="col">Species</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for(var i=0; i<flowers.length; i++) { %>
+            <tr>
+                <th scope="row"><%= (i+1) %></th>
+                <td><a href="/flowers/<%= flowers[i].COMNAME %>"><%= flowers[i].COMNAME %></a></td>
+                <td><a href="/flowers/<%= flowers[i].COMNAME %>"><%= flowers[i].GENUS%></a></td>
+                <td><a href="/flowers/<%= flowers[i].COMNAME %>"><%= flowers[i].SPECIES %></a></td>
+            </tr>
+        <% } %>
+        </tbody>
+        </table>
+    </div>
+</div>
+<%  include ./partials/footer %>

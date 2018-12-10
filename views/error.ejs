@@ -1,0 +1,11 @@
+<%  include ./partials/header %>
+<div class="container text-center">
+    <div class="sighting-container">
+        <h2 class="text-center"><%= current %></h2>
+        <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading"><%= error.title %></h4>
+        <p><%= error.message %></p>
+        </div>
+    </div>
+</div>
+<%  include ./partials/footer %>

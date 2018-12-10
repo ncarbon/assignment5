@@ -1,0 +1,30 @@
+
+<%  include ./partials/header %>
+<div class="container text-center">
+    <div class="flower-container">
+        <h2 class="text-center">Search Results for <%= searchQuery %></h2>
+        <table class="table">
+        <thead>
+        <tr>
+        <th scope="col">#</th>
+            <th scope="col">Common Name</th>
+            <th scope="col">Sighted By</th>
+            <th scope="col">Location</th>
+            <th scope="col">Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for(var i=0; i<results.length; i++) { %>
+            <tr>
+                <th scope="row"><%= (i+1) %></th>
+                <td><a href="/sightings/<%= results[i].NAME %>"><%= results[i].NAME %></a></td>
+                <td><a href="/sightings/<%= results[i].NAME %>"><%= results[i].PERSON%></a></td>
+                <td><a href="/sightings/<%= results[i].NAME %>"><%= results[i].LOCATION %></a></td>
+                <td><a href="/sightings/<%= results[i].NAME %>"><%= results[i].SIGHTED %></a></td>
+            </tr>
+        <% } %>
+        </tbody>
+        </table>
+    </div>
+</div>
+<%  include ./partials/footer %>

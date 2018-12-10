@@ -1,0 +1,63 @@
+html, body {
+    margin: 0;
+}
+
+.main {
+    height: 100%;
+    width: 100%;
+    background-image: url(/images/landing.jpeg) ;
+    background-position: center center;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
+    background-size:  cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.flower-container {
+    margin: 20px;
+}
+
+table {
+    margin-top: 30px;
+}
+
+.panel .button{
+    display: inline-block;
+}
+
+.masthead {
+    height: 100%;
+    padding-top: 10rem;
+    padding-bottom: calc(10rem - 56px);
+    background-image:  url(/images/landing.jpeg);
+    background-position: center center;
+    background-position: center center;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
+    background-size:  cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  .form {
+      margin:  0 auto;
+      padding: 20px;
+  }
+
+  .button {
+      margin: 10px;
+  }
+
+  .button-inline {
+      display: inline-block;
+  }
+
+  img {
+      height: 200px;
+      width: 200px;
+  }
