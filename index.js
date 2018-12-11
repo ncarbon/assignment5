@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const sqlite3 = require('sqlite3').verbose();
 const request = require('request-promise');
+const dotenv  = require('dotenv').config()
 const PORT = process.env.port || 3100;
 const app = express();
 
@@ -72,7 +73,7 @@ app.get('/flowers/:name', (req, res) => {
         } else {
             const options = {
                 method: 'GET',
-                uri: `https://www.googleapis.com/customsearch/v1?key=AIzaSyBv7NoslxpWMT08AmOcFLUiQNqPTDj3_GU&cx=007253857045997363824%3Abnjbywim8mi&q=${req.params.name} plant&searchType=image&fileType=jpg&imgSize=small&alt=json`,
+                uri: `https://www.googleapis.com/customsearch/v1?key=${process.env.GOOGLE_API_KEY}&cx=${process.env.GOOGLE_CUSTOM_SEARCH_KEY}&q=${req.params.name} plant&searchType=image&fileType=jpg&imgSize=small&alt=json`,
                 jsom: true
             }
             request(options).then((response) => {
